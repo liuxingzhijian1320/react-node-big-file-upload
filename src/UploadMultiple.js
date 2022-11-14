@@ -247,6 +247,7 @@ const UploadMultiple = () => {
     document.addEventListener('change', changeFile);
 
     return () => {
+      dispatch({ type: 'clearAll' });
       document.removeEventListener('change', changeFile);
     };
   }, []);

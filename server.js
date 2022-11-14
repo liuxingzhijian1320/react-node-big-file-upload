@@ -19,8 +19,7 @@ app.all('*', (req, res, next) => {
   else next();
 });
 
-console.log('11,', path.join(__dirname, 'nodeServer/uploads'));
-app.use(express.static(path.join(__dirname, 'nodeServer/uploads')));
+app.use(express.static(path.join(__dirname, 'nodeServer')));
 
 // 列出文件夹下所有文件
 function listDir(path) {
@@ -138,10 +137,10 @@ app.all('/upload', (req, resp) => {
 
   form.on('progress', function (bytesReceived, bytesExpected) {
     //在这里判断接受到数据是否超过最大，超过截断接受流
-    console.log(
-      'server-progress',
-      ((bytesReceived / bytesExpected) * 100).toFixed(2) + '%'
-    );
+    // console.log(
+    //   'server-progress',
+    //   ((bytesReceived / bytesExpected) * 100).toFixed(2) + '%'
+    // );
   });
 
   // 文件夹是否存在, 不存在则创建文件
